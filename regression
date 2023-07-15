@@ -9,39 +9,37 @@ from sklearn.neighbors import KNeighborsRegressor
 import matplotlib.pyplot as plt
 import numpy as np
 
-#mongo
+#Mongo
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["DOE"]
 mycol = mydb["DOE"]
-#
-# #Alternate method
-# #Get data
-# csv_file = pd.read_csv("DOE.csv")
-# data = pd.read_csv("DOE.csv")
-# # print(data.head())
-# # print(data.dtypes)
-# print(data.head())
 
-#pandas
+##Csv method
+#csv_file = pd.read_csv("DOE.csv")
+#data = pd.read_csv("DOE.csv")
+##print(data.dtypes)
+#print(data.head())
+
+#Pandas
 data = pd.DataFrame(list(mydb.DOE.find({})))
 data = data[['volume', 'density', 'density_atomic', 'nelements', 'nsites']]
 
-#cleandata
+#Clean data
 data.dropna(inplace=True)
 data.isnull().sum()
 x= data[['density', 'density_atomic', 'nelements', 'nsites']]
 y = data [['volume']]
 
-# # create a one hot encoder object
-# # this can be uncommented and used for non-numeric data fields
-# # search "one hot encoder" for more information
-# dr
-# # print the column names of the dataframe
-# print(dummy_df.columns)
-# # concatenate the dummy dataframe with the original
-# dummy_data = pd.concat([data, dummy_df], axis=1)
+##One hot encoder object
+##This can be uncommented and used for non-numeric data fields
+##Search "one hot encoder" for more information
+#dr
+##print the column names of the dataframe
+#print(dummy_df.columns)
+##concatenate the dummy dataframe with the original
+#dummy_data = pd.concat([data, dummy_df], axis=1)
 
-#train (printed data)
+#Train (printed data)
 train_dataset = data.sample(frac=0.8, random_state=0)
 test_dataset = data.drop(train_dataset.index)
 print(train_dataset.shape)
@@ -50,7 +48,7 @@ print(train_dataset.describe())
 print(train_dataset.dtypes)
 print(train_dataset)
 
-#plotpairplot
+#Plot pairplot
 sns.pairplot(train_dataset[['volume', 'density', 'density_atomic', 'nelements', 'nsites']], diag_kind='kde')
 plt.show()
 print(train_dataset.describe().transpose()[['mean', 'std']])
@@ -63,8 +61,6 @@ print()
 #train_test_split
 x_train, x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=27)
 
-#plotted data
-
 #LinearRegression
 lr = LinearRegression()
 lr.fit(x_train,y_train)
@@ -76,7 +72,7 @@ print(r2_score(predictions, y_test))
 
 k_values = list(range(1,26))
 
-#knn
+#KNN
 scores = []
 for k in k_values:
     model = KNeighborsRegressor(n_neighbors=k)
@@ -91,13 +87,13 @@ plt.xlabel("K Values")
 plt.ylabel("Accuracy")
 plt.show()
 
-#RandomForest
+#Random forest
 rf = RandomForestRegressor()
 rf.fit(x_train,y_train.values.ravel())
 predictions = rf.predict(x_test)
 print(r2_score(predictions, y_test))
 
-#FeatureImportance
+#Feature importance
 importances = rf.feature_importances_
 sorted_indices = np.argsort(importances)[::-1]
 feat_labels = [ 'density', 'density_atomic', 'nelements', 'nsites']
