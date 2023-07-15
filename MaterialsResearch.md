@@ -22,7 +22,11 @@ The issues surrounding lithium-ion indicate a need for significant changes. We s
 
 Works Cited
 S. Abada, G. Marlair, A. Lecocq, M. Petit, V. Sauvant-Moynot, F. Huet, Safety focused modeling of lithium-ion batteries: A review, Journal of Power Sources, Volume 306, 2016, Pages 178-192, ISSN 0378-7753, https://doi.org/10.1016/j.jpowsour.2015.11.100.
+
 Mullaney, Tim. “Tesla and the science behind the next-generation, lower-cost, ‘million-mile’ electric-car battery” CNBC, 30 Jun. 2020 https://www.cnbc.com/2020/06/30/tesla-and-the-science-of-low-cost-next-gen-ev-million-mile-battery.html. Accessed 16 Nov. 2022.
+
 A. Jain, S. Ping Ong, G. Hautier, W. Chen, W. D. Richards, S. Dacek, S. Cholia, D. Gunter, D. Skinner, G. Ceder, and K. Persson, "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation", APL Materials 1, 011002 (2013) https://doi.org/10.1063/1.4812323
+
 M. Esters, C. Oses, S. Divilov, H. Eckert, R. Friedrich, D. Hicks, M. Mehl, F. Rose, A. Smolyanyuk, A. Calzolari, X. Campilongo, C. Toher, S. Curtarolo, aflow.org: A web ecosystem of databases, software and tools, Computational Materials Science, Volume 216, 2023, 111808, ISSN 0927-0256, https://doi.org/10.1016/j.commatsci.2022.111808. 
+
 JX. Shen, M. Horton & K.A. Persson A charge-density-based general cation insertion algorithm for generating new Li-ion cathode materials. npj Comput Mater 6, 161 (2020). https://doi.org/10.1038/s41524-020-00422-3
