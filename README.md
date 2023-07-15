@@ -55,7 +55,7 @@ Part 4: The results.
 This process will serve as a first step in establishing a repeatable process for myself (and anyone who wants to use it) for continued learning. Using the known data [materialsproject.org] as inputs, processing locally [Python], storing locally [Mongo], applying mathematical formulas and outputting in a spreadsheet [Excel] format.
 
 Final Thoughts
-I am focused on Mathmatical and Chemistry related formulas which will occupy my thoughts in the upcoming semester. At the Department of Energy, I learned concepts that course corrected my understanding and will continue to pivot as I learn more.
+I am focused on Mathematical and Chemistry related formulas which will occupy my thoughts in the upcoming semester. At the Department of Energy, I learned concepts that course corrected my understanding and will continue to pivot as I learn more.
 
 A few questions:
 
