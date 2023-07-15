@@ -55,6 +55,10 @@ A few questions:
 	
 	This project acts as a great starting place to collect ideas and further our knowledge. While the pursuit of knowledge is far from complete for those of us in undergraduate studies, this is a great first step. With over 19,000 citations to this amazing wealth of information [materialsproject.org], we have likely just seen a glimpse of what is possible.  This project could not be completed without a special thank you to everyone that makes materialsproject.org possible. Additionally, the Department of Energy has invested significant energy in countless questions and resources surrounding TensorFlow, python and several other frameworks.
 
+
+
+
+
 Works Cited
 
 M. Esters, C. Oses, S. Divilov, H. Eckert, R. Friedrich, D. Hicks, M. Mehl, F. Rose, A. Smolyanyuk, A. Calzolari, X. Campilongo, C. Toher, S. Curtarolo, aflow.org: A web ecosystem of databases, software and tools, Computational Materials Science, Volume 216, 2023, 111808, ISSN 0927-0256, https://doi.org/10.1016/j.commatsci.2022.111808.
