@@ -11,7 +11,7 @@ The Materials Project API outlines python programming as a preferred method and 
 
 Mongo db was a great option for storing data. In our example we queried our dataset from the API and saved it as a comma separate values file (excel). We cleaned it using python and excel. It was then stored in a locally hosted mongo database. Ubuntu docker image was my preferred method.
 
-At this point, data should be fed through an algorithm (TBD) to output the desired unknown variables. My next steps are delving further into the sciences to develop a greater understanding as my current knowledge on the subject is lacking. I found the write to csv functionality in python to be particularly useful to this point.
+At this point, data should be fed through an algorithm (TBD) to output the desired unknown variables. My next steps are delving further into the sciences to develop a greater understanding as my current knowledge on the subject is lacking. I found the write_to_csv functionality in python to be particularly useful to this point.
 
 Due to the technical nature of this topic, I was careful to thoroughly comment the code for people new to the subject. This was particularly important to me as I had zero understanding of python 1 month ago.
 
