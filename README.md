@@ -4,7 +4,7 @@ This article will be laid out as a process flow until I further understand my in
 The article “aflow.org: A web ecosystem of databases, software and tools” refers to a logical method. It states, “To enable materials databases supporting computational and experimental research, it is critical to develop platforms that both facilitate access to the data and provide the tools used to generate/analyze it — all while considering the diversity of users’ experience levels and usage needs.” (Esters et al. 1). 
 
 Part 1: The source data
-Perhaps the most applicable resource I have found through my extensive research of this topic is the materials project. An open-source app that can be found here: https://materialsproject.org/. According to the documentation it is intended to be used/shared openly and is license under the creative commons 4.0 license. This was a major reason for selecting this dataset. Many incredible minds have already started the conversation however it is a new area of study for me. 
+Perhaps the most applicable resource I have found through my extensive research of this topic is the materials project. An open-source app that can be found here: https://materialsproject.org/. According to the documentation it is intended to be used/shared openly and is licensed under the creative commons 4.0 license. This was a major reason for selecting this dataset. Many incredible minds have already started the conversation however, it is a new area of study for me. 
 
 Part 2: The programming
 The Materials Project API outlines python programming as a preferred method and a git repository https://github.com/materialsproject/api that provides access to raw data. 
