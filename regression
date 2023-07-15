@@ -1,0 +1,124 @@
+import seaborn as sns
+import pymongo
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
+from sklearn.neighbors import KNeighborsRegressor
+import matplotlib.pyplot as plt
+import numpy as np
+
+#mongo
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["DOE"]
+mycol = mydb["DOE"]
+#
+# #Alternate method
+# #Get data
+# csv_file = pd.read_csv("DOE.csv")
+# data = pd.read_csv("DOE.csv")
+# # print(data.head())
+# # print(data.dtypes)
+# print(data.head())
+
+#pandas
+data = pd.DataFrame(list(mydb.DOE.find({})))
+data = data[['volume', 'density', 'density_atomic', 'nelements', 'nsites']]
+
+#cleandata
+data.dropna(inplace=True)
+data.isnull().sum()
+x= data[['density', 'density_atomic', 'nelements', 'nsites']]
+y = data [['volume']]
+
+# # create a one hot encoder object
+# # this can be uncommented and used for non-numeric data fields
+# # search "one hot encoder" for more information
+# dr
+# # print the column names of the dataframe
+# print(dummy_df.columns)
+# # concatenate the dummy dataframe with the original
+# dummy_data = pd.concat([data, dummy_df], axis=1)
+
+#train (printed data)
+train_dataset = data.sample(frac=0.8, random_state=0)
+test_dataset = data.drop(train_dataset.index)
+print(train_dataset.shape)
+print(test_dataset.shape)
+print(train_dataset.describe())
+print(train_dataset.dtypes)
+print(train_dataset)
+
+#plotpairplot
+sns.pairplot(train_dataset[['volume', 'density', 'density_atomic', 'nelements', 'nsites']], diag_kind='kde')
+plt.show()
+print(train_dataset.describe().transpose()[['mean', 'std']])
+train_features = train_dataset.copy()
+test_features = test_dataset.copy()
+train_labels = train_features.pop('volume')
+test_labels = test_features.pop('volume')
+print()
+
+#train_test_split
+x_train, x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=27)
+
+#plotted data
+
+#LinearRegression
+lr = LinearRegression()
+lr.fit(x_train,y_train)
+predictions = lr.predict(x_test)
+
+#R2
+print(predictions)
+print(r2_score(predictions, y_test))
+
+k_values = list(range(1,26))
+
+#knn
+scores = []
+for k in k_values:
+    model = KNeighborsRegressor(n_neighbors=k)
+    model.fit(x_train,y_train)
+    pred = model.predict(x_test)
+    accuracy = r2_score(y_test,pred)
+    scores.append(accuracy)
+    print(scores)
+
+plt.plot(scores)
+plt.xlabel("K Values")
+plt.ylabel("Accuracy")
+plt.show()
+
+#RandomForest
+rf = RandomForestRegressor()
+rf.fit(x_train,y_train.values.ravel())
+predictions = rf.predict(x_test)
+print(r2_score(predictions, y_test))
+
+#FeatureImportance
+importances = rf.feature_importances_
+sorted_indices = np.argsort(importances)[::-1]
+feat_labels = [ 'density', 'density_atomic', 'nelements', 'nsites']
+for f in range(x_train.shape[1]):
+    print("%2d) %-*s %f" % (f + 1, 30,
+                            feat_labels[sorted_indices[f]],
+                            importances[sorted_indices[f]]))
+
+plt.title('Feature Importance')
+plt.bar(range(x_train.shape[1]), importances[sorted_indices], align='center')
+plt.xticks(range(x_train.shape[1]), x_train.columns[sorted_indices], rotation=90)
+plt.tight_layout()
+plt.show()
+
+# KNN, XGBRegressor, XGBoost and Cross Validation to be added in future versions
+
+# List of available fields at Materialsproject.org: _id, builder_meta, nsites, elements, nelements, composition, composition_reduced, formula_pretty
+# formula_anonymous, chemsys, volume, density, density_atomic, symmetry, property_name, material_id, deprecated, deprecation_reasons
+# last_updated, origins, warnings, structure, Lattice, task_ids, uncorrected_energy_per_atom, energy_per_atom, formation_energy_per_atom
+# energy_above_hull, is_stable, equilibrium_reaction_energy_per_atom, decomposes_to, xas, grain_boundaries, band_gap, cbm, vbm, efermi
+# is_gap_direct, is_metal, es_source_calc_id, bandstructure, dos, dos_energy_up, dos_energy_down, is_magnetic, ordering, total_magnetization
+# total_magnetization_normalized_vol, total_magnetization_normalized_formula_units, num_magnetic_sites, num_unique_magnetic_sites, types_of_magnetic_species
+# k_voigt, k_reuss, k_vrh, g_voigt, g_reuss, g_vrh, universal_anisotropy, homogeneous_poisson, e_total, e_ionic, e_electronic, n, e_ij_max, weighted_surface_energy_EV_PER_ANG2
+# weighted_surface_energy, weighted_work_function, surface_anisotropy, shape_factor, has_reconstructed, possible_species, has_props, theoretical, database_IDs, fields_not_requested
