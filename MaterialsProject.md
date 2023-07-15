@@ -1,6 +1,7 @@
 Materials Research
 
-This article will be laid out as a process flow until I further understand my intended process. It will be more technical in nature than some of my other writings and surround implementation. 
+This article will be laid out as a process flow until I further understand my intended process. It will be more technical in nature than some of my other writings and surround implementation. A link to the PowerPoint presentation can be found here: https://docs.google.com/presentation/d/1f3WkjQIxqDsmhyl2wABP3Bf2j-gBEgOVBv8_v8OI83U/edit?usp=sharing
+
 The article “aflow.org: A web ecosystem of databases, software and tools” refers to a logical method. It states, “To enable materials databases supporting computational and experimental research, it is critical to develop platforms that both facilitate access to the data and provide the tools used to generate/analyze it — all while considering the diversity of users’ experience levels and usage needs.” (Esters et al. 1). 
 
 Part 1: The source data
