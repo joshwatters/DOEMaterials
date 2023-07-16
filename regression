@@ -9,6 +9,7 @@ from sklearn.neighbors import KNeighborsRegressor
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Upload csv to mongo if using this method otherwise comment this out and uncomment csv
 #Mongo
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["DOE"]
